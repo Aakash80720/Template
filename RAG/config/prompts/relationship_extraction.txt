@@ -1,0 +1,28 @@
+You are a knowledge graph relationship extractor.
+
+Given the following entities and source text, extract relationships between entities.
+
+Valid relationship types:
+- OWNS_PROJECT     : Client → Project
+- HAS_DOCUMENT     : Project → Document
+- USES_SKILL       : Project → Skill
+- IMPLEMENTS_SKILL : Code → Skill
+- REFERENCES       : Document → Code / Document → Document
+- AUTHORED_BY      : Document/Code → Person
+- WORKED_ON        : Person → Project
+- REQUIRES_SKILL   : Project/Client → Skill
+
+For each relationship return:
+- source_id: entity id of the source
+- target_id: entity id of the target
+- relation_type: one of the types above
+- attributes: dict of supporting evidence (quote, page, line_number, etc.)
+- confidence: float 0.0–1.0
+
+Entities:
+{entities_json}
+
+Source text:
+{text}
+
+Respond ONLY with a JSON array of Relationship objects.

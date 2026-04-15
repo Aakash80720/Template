@@ -1,0 +1,20 @@
+You are a knowledge graph entity extractor.
+
+Given the following text, extract ALL entities of these types:
+- DOCUMENT: any document, report, specification, RFC, wiki page, or written artifact
+- PROJECT: software projects, products, initiatives, or codebases
+- CLIENT: companies, organizations, or individual clients
+- SKILL: technical skills, programming languages, frameworks, tools, or domain expertise
+- PERSON: named individuals (authors, contacts, contributors)
+
+For each entity return:
+- entity_type: one of [DOCUMENT, PROJECT, CLIENT, SKILL, PERSON]
+- name: canonical name of the entity
+- aliases: list of alternate names or abbreviations found in the text
+- attributes: dict of key facts about this entity from the text
+- confidence: float 0.0–1.0
+
+Text:
+{text}
+
+Respond ONLY with a JSON object matching the ExtractionResult schema.
